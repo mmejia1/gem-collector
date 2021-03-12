@@ -1,7 +1,7 @@
 {
-  "name": "PhaserWorkshop",
+  "name": "gem-collector",
   "version": "1.0.0",
-  "description": "A workshop for getting started with Phaser",
+  "description": "collect gems!",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server"
