@@ -84,6 +84,10 @@ export default class FgScene extends Phaser.Scene {
       //pickupCoin.play()
     );
 
+    this.physics.add.collider(this.player, this.gems, function (player, gems) {
+      this.pickupCoin.play();
+    });
+
     //SCORE HERE
     this.scoreText = this.add.text(16, 16, 'Score:0', {
       fontSize: '28px',
@@ -95,9 +99,7 @@ export default class FgScene extends Phaser.Scene {
     this.jumpSound = this.sound.add('jump');
     //coin sound
     this.pickupCoin = this.sound.add('pickupCoin', { loop: false });
-    // this.physics.add.collider(this.gems, this.player, function (player, gems) {
-    //   pickupCoin.play();
-    // });
+
     // Create collisions for all entities
     // << CREATE COLLISIONS HERE >>
     //PLAYER COLLISION
@@ -110,10 +112,7 @@ export default class FgScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.enemy);
     //collider with gem
     this.physics.add.collider(this.gems, this.groundGroup);
-    // this.physics.add.collider(this.player, this.gem, function (player, gems) {
-    //   pickupCoin.play();
-    //   //bitcoin.destroy();
-    // });
+
     //CREATE CURSORS
     this.cursors = this.input.keyboard.createCursorKeys();
     //CREATE MOVEMENT
@@ -157,7 +156,8 @@ export default class FgScene extends Phaser.Scene {
   collectGems(player, gem) {
     console.log(gem);
     gem.disableBody(true, true);
-    // pickupCoin.play();
+    //SOUND WHEN GEM IS PICKED UP
+    this.pickupCoin.play();
     //add code for score
     score += 10;
     this.scoreText.setText('Score: ' + score);
@@ -169,5 +169,6 @@ export default class FgScene extends Phaser.Scene {
     // << DO UPDATE LOGIC for player HERE >>
 
     this.player.update(this.cursors, this.jumpSound); // Add a parameter for the jumpSound
+    //this.player.update(this., this.pickupCoin);
   }
 }
