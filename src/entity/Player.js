@@ -12,10 +12,10 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   // Check which controller button is being pushed and execute movement & animation
-  update(cursors) {
+  update(cursors, jumpSound) {
     // << INSERT CODE HERE >>
     this.updateMovement(cursors);
-    this.updateJump(cursors);
+    this.updateJump(cursors, jumpSound);
     //this.updateIdle();
   }
   //HELPFUNC FOR UPDATE
@@ -51,9 +51,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   //UPDATE JUMP
-  updateJump(cursors) {
+  updateJump(cursors, jumpSound) {
     if (cursors.up.isDown && this.body.touching.down) {
       this.setVelocityY(-800);
+      //jump sound
+      jumpSound.play();
     }
   }
   // //UPDATEIdle

@@ -15,7 +15,7 @@ export default class BgScene extends Phaser.Scene {
   create() {
     // Create Sprites
     // << CREATE SPRITE HERE >>
-    this.add.image(-100, 0, 'forest').setOrigin(0).setScale(0.5);
+    this.add.image(-100, 0, 'forest').setOrigin(0).setScale(1);
     this.add.image(280, 80, 'logo').setScale(5);
   }
 }
