@@ -38,6 +38,7 @@ export default class FgScene extends Phaser.Scene {
 
     // Preload Sounds
     // << LOAD SOUNDS HERE >>
+    this.load.audio('missionMusic', 'assets/audio/missionMusic.wav');
     this.load.audio('jump', 'assets/audio/jump.wav');
     this.load.audio('pickupCoin', 'assets/audio/pickupCoin.wav');
   }
@@ -99,6 +100,11 @@ export default class FgScene extends Phaser.Scene {
     this.jumpSound = this.sound.add('jump');
     //coin sound
     this.pickupCoin = this.sound.add('pickupCoin', { loop: false });
+
+    //background music
+    this.missionMusic = this.sound.add('missionMusic');
+    this.missionMusic.setLoop(true);
+    //this.missionMusic.play();
 
     // Create collisions for all entities
     // << CREATE COLLISIONS HERE >>
